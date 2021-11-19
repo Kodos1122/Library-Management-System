@@ -112,5 +112,82 @@ function sanitize($text) {
 }
 
 function get_value($key, $variable = null) {
-    return (isset($_POST, $_POST[$key]) ? $_POST[$key] : (isset($variable) ? $variable : ''));
+    return (isset($_POST, $_POST[$key]) ? $_POST[$key] : (isset($_GET, $_GET[$key]) ? $_GET[$key] : (isset($variable) ? $variable : '')));
+}
+
+function modify_query_url($key, $value = null) {
+    $parameters = array();
+    
+    if (is_array($key)) {
+        $parameters = $key;
+    } else $parameters[$key] = $value;
+
+    $path = parse_url($_SERVER['REQUEST_URI']);
+    $query_string = $path['query'] ?? "";
+
+    parse_str($query_string, $query);
+    
+    foreach ($parameters as $key => $value) {
+        $query[$key] = $value;
+    }
+
+    return '?' . http_build_query($query);
+}
+
+function pagination($count, $buttons) {
+    $limit = (empty($_GET['limit'])) ? 25 : max(5, min(100, $_GET['limit']));
+    $offset = (empty($_GET['offset'])) ? 0 : $_GET['offset'];
+
+    $order_by = strtolower($_GET['order_by'] ?? "id");
+    $sort_by = ((strtoupper($_GET['sort_by'] ?? null) == "DESC") ? "DESC" : "ASC");
+
+    // Calculate page number
+    $page = ($offset / $limit) + 1;
+    $pages = max(1, ceil($count / $limit));
+
+    $end = min($count, ($offset + $limit));
+    $start = min($end, ($offset + 1));
+
+    $pagination = array();
+    $pagination['buttons'] = array();
+
+    $pagination['end'] = $end;
+    $pagination['start'] = $start;
+    $pagination['count'] = $count;
+    $pagination['limit'] = $limit;
+    $pagination['offset'] = $offset;
+    $pagination['order_by'] = $order_by;
+    $pagination['sort_by'] = $sort_by;
+
+    $pagination['page'] = $page;
+    $pagination['pages'] = $pages;
+
+    // Pagination initalization
+    $buttons = 5;
+
+    if ($buttons > $pages) $buttons = $pages;
+
+    $page_offset = ceil($buttons / 2);
+    if ($page_offset - $page <= 2) $page_offset = min($page, $page_offset);
+    if ($page + ($buttons - $page_offset) > $pages) $page_offset = ($buttons - ($pages - $page));
+
+    if ($page == 1) $page_offset = 1;
+    if ($page == $pages) $page_offset = $buttons;
+
+    foreach (range(1, $buttons) as $i) {
+        if ($i < $page_offset) $page_number = $page - ($page_offset - $i);
+        if ($i == $page_offset) $page_number = $page;
+        if ($i > $page_offset) $page_number = $page + ($i - $page_offset);
+
+        $active = ($page == $page_number);
+
+        $button = array();
+        $button['active'] = $active;
+        $button['number'] = $page_number;
+        $button['offset'] = (($page_number - 1) * $limit);
+
+        $pagination['buttons'][] = $button;
+    }
+
+    return $pagination;
 }

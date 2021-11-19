@@ -38,23 +38,8 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">
+                        <a class="nav-link<?= ($route == '/') ? ' active' : '' ?>" href="/">
                             <i class="fas fa-chart-line"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/books">
-                            <i class="fas fa-book"></i> Books
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/clients">
-                            <i class="fas fa-users"></i> Clients
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/rentals">
-                            <i class="fas fa-barcode"></i> Rentals
                         </a>
                     </li>
                 </ul>
@@ -63,8 +48,28 @@
                 </h6>
                 <ul class="nav flex-column mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="/users">
+                        <a class="nav-link<?= (str_starts_with($route, '/user')) ? ' active' : '' ?>" href="/users">
                             <i class="fas fa-users"></i> Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/book')) ? ' active' : '' ?>" href="/books">
+                            <i class="fas fa-book"></i> Books
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/author')) ? ' active' : '' ?>" href="/authors">
+                            <i class="fas fa-feather-alt"></i> Authors
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/genre')) ? ' active' : '' ?>" href="/genres">
+                            <i class="fas fa-theater-masks"></i> Genres
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/publisher')) ? ' active' : '' ?>" href="/publishers">
+                            <i class="fas fa-user-edit"></i> Publishers
                         </a>
                     </li>
                 </ul>
