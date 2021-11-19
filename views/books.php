@@ -1,9 +1,24 @@
 <?php 
 
-$where = new WhereClause("or");
+$where = new WhereClause("and");
 
 if (isset($_GET['search'])) {
     $where->add("title LIKE %ss", $_GET['search']);
+}
+
+if (isset($_GET['genre'])) {
+    $genre = DB::queryFirstField("SELECT name FROM genres WHERE id = %i", $_GET['genre']);
+    if ($genre) $where->add("id IN (SELECT book_id FROM book_genres WHERE genre_id = %i)", $_GET['genre']);
+}
+
+if (isset($_GET['publisher'])) {
+    $publisher = DB::queryFirstField("SELECT name FROM publishers WHERE id = %i", $_GET['publisher']);
+    if ($publisher) $where->add("publisher_id = %i", $_GET['publisher']);
+}
+
+if (isset($_GET['author'])) {
+    $author = DB::queryFirstField("SELECT CONCAT(name_first, IFNULL(CONCAT(' ', name_middle), ''), ' ', name_last) AS name FROM authors WHERE id = %i", $_GET['author']);
+    if ($author) $where->add("id IN (SELECT book_id FROM book_authors WHERE author_id = %i)", $_GET['author']);
 }
 
 $count = DB::queryFirstField("SELECT COUNT(*) FROM books WHERE %l", $where);
@@ -35,7 +50,7 @@ include('includes/header.php');
         </div>-->
     </div>
     <div class="row">
-        <div class="col-sm-8"><h2>All <strong>Books</strong></h2></div>
+        <div class="col-sm-8"><h2><?= (empty($genre) ? "All" : $genre) ?> <strong>Books<?= (empty($author) ? "" : " by " . $author) ?></strong><?= (empty($publisher) ? "" : '<br><p class="lead">Published by <strong>' . $publisher . '</strong></p>') ?></h2></div>
         <div class="col-sm-4">
             <form class="form-group search" method="GET" action="">
                 <div class="form-group search">

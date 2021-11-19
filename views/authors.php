@@ -59,7 +59,7 @@ include('includes/header.php');
             </thead>
             <tbody>
                 <?php foreach ($authors as $author): ?>
-                    <tr>
+                    <tr onclick="window.location.href='/books?author=<?= $author['id'] ?>'">
                         <td><?= $author['id'] ?></td>
                         <td><?= $author['name'] ?></td>
                         <td><?= $author['books'] ?></td>
