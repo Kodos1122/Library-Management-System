@@ -73,7 +73,7 @@ include('includes/header.php');
             </thead>
             <tbody>
                 <?php foreach ($books as $book): ?>
-                    <tr onclick="window.location.href='/book/<?= strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $book['title']))); ?>-<?= $book['id'] ?>'">
+                    <tr class="cursor-pointer" onclick="window.location.href='/book/<?= strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $book['title']))); ?>-<?= $book['id'] ?>'">
                         <td><?= $book['id'] ?></td>
                         <td><?= $book['title'] ?></td>
                         <td><?= $book['pages'] ?></td>

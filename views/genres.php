@@ -56,7 +56,7 @@ include('includes/header.php');
             </thead>
             <tbody>
                 <?php foreach ($genres as $genre): ?>
-                    <tr onclick="window.location.href='/books?genre=<?= $genre['id'] ?>'">
+                    <tr class="cursor-pointer" onclick="window.location.href='/books?genre=<?= $genre['id'] ?>'">
                         <td><?= $genre['id'] ?></td>
                         <td><?= $genre['name'] ?></td>
                         <td><?= $genre['books'] ?></td>
