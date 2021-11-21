@@ -35,7 +35,6 @@ include('includes/header.php');
 
 ?>
 
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2"><i class="fas fa-book"></i> Books</h1>
         <!--<div class="btn-toolbar mb-2 mb-md-0">
@@ -50,7 +49,7 @@ include('includes/header.php');
         </div>-->
     </div>
     <div class="row">
-        <div class="col-sm-8"><h2><?= (empty($genre) ? "All" : $genre) ?> <strong>Books<?= (empty($author) ? "" : " by " . $author) ?></strong><?= (empty($publisher) ? "" : '<br><p class="lead">Published by <strong>' . $publisher . '</strong></p>') ?></h2></div>
+        <div class="col-sm-8"><h2><?= (empty($genre) ? "All" : $genre) ?> <strong>Books<?= (empty($author) ? "" : "</strong> by <strong>" . $author) ?></strong><?= (empty($publisher) ? "" : '<br><p class="lead">Published by <strong>' . $publisher . '</strong></p>') ?></h2></div>
         <div class="col-sm-4">
             <form class="form-group search" method="GET" action="">
                 <div class="form-group search">
@@ -74,7 +73,7 @@ include('includes/header.php');
             </thead>
             <tbody>
                 <?php foreach ($books as $book): ?>
-                    <tr>
+                    <tr onclick="window.location.href='/book/<?= strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $book['title']))); ?>-<?= $book['id'] ?>'">
                         <td><?= $book['id'] ?></td>
                         <td><?= $book['title'] ?></td>
                         <td><?= $book['pages'] ?></td>

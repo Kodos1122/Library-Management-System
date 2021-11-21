@@ -34,6 +34,7 @@ CREATE TABLE books (
     id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL, 
     pages INTEGER UNSIGNED, 
+    slug VARCHAR(255),
     rating DECIMAL(4, 2), 
     isbn VARCHAR(13), 
     published_at DATE, 

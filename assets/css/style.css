@@ -1,3 +1,12 @@
+@font-face {
+  font-family: ArchitectsDaughter;
+  src: url('../webfonts/ArchitectsDaughter-Regular.ttf');
+}
+
+.book-title {
+  font-family: ArchitectsDaughter;
+}
+
 /*
  * Sidebar
  */
