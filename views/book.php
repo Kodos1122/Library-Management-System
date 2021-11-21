@@ -6,6 +6,7 @@ $book = DB::queryFirstRow("SELECT *, (SELECT name FROM publishers WHERE publishe
 if (!($book)) exit(header('Location: /books'));
 
 $authors = DB::queryFirstColumn("SELECT CONCAT(name_first, IFNULL(CONCAT(' ', name_middle), ''), ' ', name_last) AS name FROM authors WHERE id IN (SELECT author_id FROM book_authors WHERE book_id = %i)", $book['id']);
+$genres = DB::query("SELECT id, name FROM genres WHERE id IN (SELECT genre_id FROM book_genres WHERE book_id = %i)", $book['id']);
 
 include('includes/header.php');
 
@@ -33,6 +34,11 @@ include('includes/header.php');
 
         <div class="col-sm-10">
             <h1 class="book-title"><?= $book['title'] ?></h1>
+            <div class="genres mb-3">
+                <?php foreach ($genres as $genre): ?>
+                    <span class="cursor-pointer badge bg-light text-dark border" onclick="window.location.href='/books?genre=<?= $genre['id'] ?>'"><?= $genre['name'] ?></span>
+                <?php endforeach; ?>
+            </div>
             <p class="lead">
                 <strong>Written By:</strong> <?= implode(", ", $authors) ?><br>
                 <strong>Published By:</strong> <?= $book['publisher'] ?><br>
