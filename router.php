@@ -4,12 +4,15 @@
 session_start();
 
 // Establish Database Connection
+$config = parse_ini_file('config.ini');
+
 require_once 'db.class.php';
-DB::$user = 'root';
-DB::$password = 'password';
-DB::$host = 'localhost';
-DB::$port = '3307';
-DB::$dbName = 'library';
+DB::$user = $config['user'];
+DB::$password = $config['password'];
+DB::$dbName = $config['dbName'];
+DB::$host = $config['host'];
+DB::$port = $config['port'];
+DB::$encoding = $config['encoding'];
 
 // Routing
 function get($route, $path_to_include) {
