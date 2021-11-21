@@ -42,7 +42,7 @@ include('includes/header.php');
             <p class="lead">
                 <strong>Written By:</strong> <?= implode(", ", $authors) ?><br>
                 <strong>Published By:</strong> <?= $book['publisher'] ?><br>
-                <strong>Published On:</strong> <?= date('F, j Y', strtotime($book['published_at'])) ?>
+                <strong>Published On:</strong> <?= date('F j, Y', strtotime($book['published_at'])) ?>
             </p>
             <p>
                 This book has <strong><?= $book['pages'] ?></strong> pages and should take approximately <strong><?= floor(($book['pages'] * 1.7) / 60) . ' hours and ' . (($book['pages'] * 1.7) % 60) . ' minutes' ?></strong> to read.<br>

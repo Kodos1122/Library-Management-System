@@ -39,19 +39,16 @@
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link<?= ($route == '/') ? ' active' : '' ?>" href="/">
-                            <i class="fas fa-chart-line"></i> Dashboard
+                            <i class="fas fa-home"></i> Homepage
                         </a>
                     </li>
                 </ul>
+
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Administration</span>
+                    <span>Library</span>
                 </h6>
+
                 <ul class="nav flex-column mb-2">
-                    <li class="nav-item">
-                        <a class="nav-link<?= (str_starts_with($route, '/user')) ? ' active' : '' ?>" href="/users">
-                            <i class="fas fa-users"></i> Users
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link<?= (str_starts_with($route, '/book')) ? ' active' : '' ?>" href="/books">
                             <i class="fas fa-book"></i> Books
@@ -70,6 +67,18 @@
                     <li class="nav-item">
                         <a class="nav-link<?= (str_starts_with($route, '/publisher')) ? ' active' : '' ?>" href="/publishers">
                             <i class="fas fa-user-edit"></i> Publishers
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Administration</span>
+                </h6>
+
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/user')) ? ' active' : '' ?>" href="/users">
+                            <i class="fas fa-users"></i> Users
                         </a>
                     </li>
                 </ul>
