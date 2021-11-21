@@ -17,7 +17,7 @@ include('includes/header.php');
 
         <?php foreach ($featured_books as $book): ?>
             <div class="col-md-6">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative cursor-pointer" onclick="window.location.href='/book/<?= strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $book['title']))); ?>-<?= $book['id'] ?>'">
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary"><?= $book['genre'] ?></strong>
                         <h3 class="mb-0"><?= (strlen($book['title']) > 43) ? substr($book['title'], 0, 40) . '...' : $book['title'] ?></h3>
