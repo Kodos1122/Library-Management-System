@@ -11,6 +11,21 @@ include('includes/header.php');
 </div>
 
 <div class="row mb-4">
+    <h2 class="mb-3">Search</h2>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="/books" class="">
+                <div class="input-group mb-3">
+                    <input type="text" name="search" class="form-control form-control-lg" placeholder="Search">
+                    <button type="submit" class="input-group-text btn-success"><i class="fa fa-search">&nbsp;</i>&nbsp;Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
     <h2 class="mb-3">Featured Books</h2>
 
     <div class="row">
