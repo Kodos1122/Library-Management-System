@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($_POST['email'])) $errors[] = "Please enter your email address.";
     if (empty($_POST['password'])) $errors[] = "Please enter your password.";
 
-    $user = DB::queryFirstRow("SELECT id, email, name_first, name_last, password FROM users WHERE email = %s", $_POST['email']);
+    $user = DB::queryFirstRow("SELECT id, email, name_first, name_last, password, role FROM users WHERE email = %s", $_POST['email']);
     if (!($user && password_verify($_POST['password'], $user['password']))) $errors[] = "You have entered an invalid email or password.";
 
     if (empty($errors)) {

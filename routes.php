@@ -17,9 +17,13 @@ get('/authors', 'views/authors.php');
 get('/genres', 'views/genres.php');
 get('/publishers', 'views/publishers.php');
 
+if (isset($_SESSION['user'], $_SESSION['user']['role'])) {
+	$role = $_SESSION['user']['role'];
+
+	if ($role == 'admin') {
+		get('/users', 'views/users.php');
+		get('/template', 'views/template.php');
+	}
+}
+
 any('/404','views/404.php');
-
-if (empty($_SESSION['user'])) exit(header('Location: /login'));
-
-get('/users', 'views/users.php');
-get('/template', 'views/template.php');

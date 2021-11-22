@@ -3,9 +3,7 @@
 $where = new WhereClause("or");
 
 if (isset($_GET['search'])) {
-    $where->add("name_first LIKE %ss", $_GET['search']);
-    $where->add("name_middle LIKE %ss", $_GET['search']);
-    $where->add("name_last LIKE %ss", $_GET['search']);
+    $where->add("CONCAT(name_first, IFNULL(CONCAT(' ', name_middle), ''), ' ', name_last) LIKE %ss", $_GET['search']);
 }
 
 $count = DB::queryFirstField("SELECT COUNT(*) FROM authors WHERE %l", $where);
