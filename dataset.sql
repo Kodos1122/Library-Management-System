@@ -16,7 +16,6 @@ INSERT INTO genres (id, name, parent_id) VALUES (55, 'Reference', 69);
 INSERT INTO genres (id, name, parent_id) VALUES (56, 'Religion', 69);
 INSERT INTO genres (id, name, parent_id) VALUES (57, 'Science', 69);
 INSERT INTO genres (id, name, parent_id) VALUES (58, 'Science Fiction', 69);
-INSERT INTO genres (id, name, parent_id) VALUES (60, 'Sequential Art', 69);
 INSERT INTO genres (id, name, parent_id) VALUES (62, 'Sports and Games', 69);
 INSERT INTO genres (id, name, parent_id) VALUES (8, 'Artificial Intelligence', 69);
 INSERT INTO genres (id, name, parent_id) VALUES (49, 'Nonfiction', 69);

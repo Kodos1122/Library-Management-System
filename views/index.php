@@ -1,6 +1,7 @@
 <?php
 
 $featured_books = DB::query("SELECT *, (SELECT name FROM genres WHERE id = (SELECT genre_id FROM book_genres WHERE book_id = books.id LIMIT 1)) as genre FROM books ORDER BY RAND() LIMIT 6");
+$genres = DB::query("SELECT id, name, (SELECT COUNT(*) FROM book_genres WHERE genre_id = genres.id) as books FROM genres ORDER BY name");
 
 include('includes/header.php');
 
@@ -51,6 +52,21 @@ include('includes/header.php');
                         <img height="250" src="/assets/images/cover-default.png" alt="<?= $book['title'] ?>">
                     </div>
                 </div>
+            </div>
+        <?php endforeach; ?>
+
+    </div>
+
+    <div class="row mb-4">
+    <h2 class="mb-3">Genres</h2>
+
+    <div class="row">
+
+        <?php foreach ($genres as $genre): ?>
+            <div class="d-grid gap-2 col-sm-3 mb-3">
+                <a href="/books?genre=<?= $genre['id'] ?>" class="btn btn-outline-secondary btn-lg btn-block">
+                    <?= $genre['name'] ?>
+                </a>
             </div>
         <?php endforeach; ?>
 

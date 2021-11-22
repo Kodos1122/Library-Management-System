@@ -49,7 +49,7 @@ include('includes/header.php');
         </div>-->
     </div>
     <div class="row">
-        <div class="col-sm-8"><h2><?= (empty($genre) ? "All" : $genre) ?> <strong>Books<?= (empty($author) ? "" : "</strong> by <strong>" . $author) ?></strong><?= (empty($publisher) ? "" : '<br><p class="lead">Published by <strong>' . $publisher . '</strong></p>') ?></h2></div>
+        <div class="col-sm-8"><h2><?= (empty($genre) ? "All" : $genre) ?> <strong>Books<?= (empty($author) ? "" : "</strong> by <strong>" . $author) ?></strong><?= (empty($publisher) ? "" : '<br><p class="lead">Published by <strong>' . $publisher . '</strong></p>') ?><?= (empty($_GET['search']) ? '' : '<p class="lead">Showing ' . $count . ' results for <strong>' . sanitize($_GET['search']) . '</strong>.</p>') ?></h2></div>
         <div class="col-sm-4">
             <form class="form-group search" method="GET" action="">
                 <div class="form-group search">

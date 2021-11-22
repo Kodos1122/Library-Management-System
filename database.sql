@@ -53,5 +53,15 @@ CREATE TABLE book_genres (
     PRIMARY KEY(book_id, genre_id)
 );
 
+CREATE TABLE clients (
+    id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255),
+    name_first VARCHAR(255),
+    name_last VARCHAR(255),
+    password BINARY(60),
+    created_at DATETIME NOT NULL DEFAULT NOW(),
+    updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW()
+);
+
 INSERT INTO users (email, name_first, name_last, password) VALUES 
     ('admin@ontariotechu.net', 'Ontario', 'Tech', '$2y$10$ShhmLiA0isK.9UBzeAp16.6aJmynQn0Wan/J72J1Um8XAVdUrtfN6'); # password is 'password'

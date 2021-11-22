@@ -115,7 +115,7 @@ function sanitize($text) {
 }
 
 function get_value($key, $variable = null) {
-    return (isset($_POST, $_POST[$key]) ? $_POST[$key] : (isset($_GET, $_GET[$key]) ? $_GET[$key] : (isset($variable) ? $variable : '')));
+    return sanitize(isset($_POST, $_POST[$key]) ? $_POST[$key] : (isset($_GET, $_GET[$key]) ? $_GET[$key] : (isset($variable) ? $variable : '')));
 }
 
 function modify_query_url($key, $value = null) {
