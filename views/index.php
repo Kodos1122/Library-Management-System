@@ -1,7 +1,7 @@
 <?php
 
 $featured_books = DB::query("SELECT *, (SELECT name FROM genres WHERE id = (SELECT genre_id FROM book_genres WHERE book_id = books.id LIMIT 1)) as genre FROM books ORDER BY RAND() LIMIT 6");
-$genres = DB::query("SELECT id, name, (SELECT COUNT(*) FROM book_genres WHERE genre_id = genres.id) as books FROM genres ORDER BY name");
+$genres = DB::query("SELECT id, name FROM genres ORDER BY name");
 
 include('includes/header.php');
 

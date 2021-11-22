@@ -8,6 +8,7 @@ CREATE TABLE users (
     name_first VARCHAR(255) NOT NULL,
     name_last VARCHAR(255) NOT NULL,
     password BINARY(60) NOT NULL,
+    role TINYINT UNSIGNED NOT NULL DEFAULT 1, # 1: client, 2: researcher, 3: librarian, 4: administrator
     created_at DATETIME NOT NULL DEFAULT NOW(),
     updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW()
 );
@@ -63,5 +64,8 @@ CREATE TABLE clients (
     updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW()
 );
 
-INSERT INTO users (email, name_first, name_last, password) VALUES 
-    ('admin@ontariotechu.net', 'Ontario', 'Tech', '$2y$10$ShhmLiA0isK.9UBzeAp16.6aJmynQn0Wan/J72J1Um8XAVdUrtfN6'); # password is 'password'
+INSERT INTO users (email, name_first, name_last, role, password) VALUES 
+    ('admin@ontariotechu.net', 'Ontario', 'Tech', 4, '$2y$10$ShhmLiA0isK.9UBzeAp16.6aJmynQn0Wan/J72J1Um8XAVdUrtfN6'), # password is 'password'
+    ('librarian@ontariotechu.net', 'Vanessa', 'Baker', 3, '$2y$10$ShhmLiA0isK.9UBzeAp16.6aJmynQn0Wan/J72J1Um8XAVdUrtfN6'), # password is 'password'
+    ('researcher@ontariotechu.net', 'Chloe', 'McLean', 2, '$2y$10$ShhmLiA0isK.9UBzeAp16.6aJmynQn0Wan/J72J1Um8XAVdUrtfN6'), # password is 'password'
+    ('student@ontariotechu.net', 'Austin', 'Kerr', 1, '$2y$10$ShhmLiA0isK.9UBzeAp16.6aJmynQn0Wan/J72J1Um8XAVdUrtfN6'); # password is 'password'

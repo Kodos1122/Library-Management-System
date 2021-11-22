@@ -25,12 +25,32 @@
             </button>
             
             <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
-            
+
+            <?php if (empty($_SESSION['user'])): ?>
+
+            <div class="container-fluid">
+                <span class="navbar-text ms-auto">Please login to access the full library!</span></span>
+            </div>
+
             <div class="navbar-nav">
                 <div class="nav-item text-nowrap">
-                    <a class="nav-link px-3" href="/logout">Logout</a>
-                </div>
+                    <a class="nav-link px-3" href="/login">Login <small><i class="fa fa-sign-in-alt"></i></small></a>
+                </div>         
             </div>
+
+            <?php else: ?>
+
+            <div class="container-fluid">
+                <span class="navbar-text ms-auto">Logged in as <span class="text-light"><?= $_SESSION['user']['name'] ?></span></span>
+            </div>
+
+            <div class="navbar-nav">
+                <div class="nav-item text-nowrap">
+                    <a class="nav-link px-3" href="/logout">Logout <small><i class="fa fa-sign-out-alt"></i></small></a>
+                </div>         
+            </div>
+
+            <?php endif; ?>
         </header>
         <div class="container-fluid">
         <div class="row">
@@ -71,6 +91,7 @@
                     </li>
                 </ul>
 
+                <?php if (isset($_SESSION['user'], $_SESSION['user']['role']) && ($_SESSION['user']['role'] == 'admin')): ?>
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                     <span>Administration</span>
                 </h6>
@@ -82,6 +103,7 @@
                         </a>
                     </li>
                 </ul>
+                <?php endif; ?>
             </div>
         </nav>
 
