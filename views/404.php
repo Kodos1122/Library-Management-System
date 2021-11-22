@@ -1,24 +1,15 @@
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+<?php include('includes/header.php'); ?>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-    <title>404</title>
-
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body class="text-center">
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <h1 class="mr-3 pr-3 align-top border-right inline-block align-content-center">404</h1>
-        <div class="inline-block align-middle">
-            <h2 class="font-weight-normal lead">The page you requested was not found.</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="d-flex justify-content-center align-items-center mt-5 pt-5">
+            <h1 class="mr-3 pr-3 align-top inline-block align-content-center border-end mx-2 display-3">404&nbsp;</h1>
+            <h2 class="font-weight-normal lead fs-3">
+                The page you requested was not found.<br>
+                <span class="fs-5"><a href="/" class="text-decoration-none text-muted">Click here</a> to return to the library.</span>
+            </h2>
         </div>
     </div>
-</body>
-</html>
+</div>
+
+<?php include('includes/footer.php'); ?>
