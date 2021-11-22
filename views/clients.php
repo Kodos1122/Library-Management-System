@@ -7,7 +7,7 @@ if (isset($_GET['search'])) {
     $where->add("CONCAT(name_first, ' ', name_last) LIKE %ss", $_GET['search']);
 }
 
-$count = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE %l", $where);
+$count = DB::queryFirstField("SELECT COUNT(*) FROM clients WHERE %l", $where);
 
 $pagination = pagination($count, 5);
 $order_by = $pagination['order_by'];
@@ -15,14 +15,14 @@ $sort_by = $pagination['sort_by'];
 $limit = $pagination['limit'];
 $offset = $pagination['offset'];
 
-$users = DB::query("SELECT id, CONCAT(name_first, ' ', name_last) AS name, email, role, created_at FROM users WHERE %l ORDER BY %b %l LIMIT %i OFFSET %i", $where, $order_by, $sort_by, $limit, $offset);
+$users = DB::query("SELECT id, CONCAT(name_first, ' ', name_last) AS name, email, created_at FROM clients WHERE %l ORDER BY %b %l LIMIT %i OFFSET %i", $where, $order_by, $sort_by, $limit, $offset);
 
 include('includes/header.php');
 
 ?>
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2"><i class="fas fa-user"></i> Users</h1>
+        <h1 class="h2"><i class="fas fa-users"></i> Clients</h1>
         <!--<div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -35,7 +35,7 @@ include('includes/header.php');
         </div>-->
     </div>
     <div class="row">
-        <div class="col-sm-8"><h2>All <strong>Users</strong></h2></div>
+        <div class="col-sm-8"><h2>All <strong>Clients</strong></h2></div>
         <div class="col-sm-4">
             <form class="form-group search" method="GET" action="">
                 <div class="form-group search">
@@ -53,7 +53,6 @@ include('includes/header.php');
                     <th scope="col" width="5%">#</th>
                     <th scope="col" width="30%"><a href="<?= modify_query_url([ 'order_by' => 'name', 'sort_by' => ($sort_by == "ASC" ? 'desc' : 'asc') ]) ?>" class="text-decoration-none text-dark">Full Name<?= (($order_by == "name") ? ' <i class="fas fa-caret-' . (($sort_by == "ASC") ? 'up' : 'down') . '"></i>' : '') ?></a></th>
                     <th scope="col" width="30%"><a href="<?= modify_query_url([ 'order_by' => 'email', 'sort_by' => ($sort_by == "ASC" ? 'desc' : 'asc') ]) ?>" class="text-decoration-none text-dark">Email Address<?= (($order_by == "email") ? ' <i class="fas fa-caret-' . (($sort_by == "ASC") ? 'up' : 'down') . '"></i>' : '') ?></a></th>
-                    <th scope="col" width="15%"><a href="<?= modify_query_url([ 'order_by' => 'role', 'sort_by' => ($sort_by == "ASC" ? 'desc' : 'asc') ]) ?>" class="text-decoration-none text-dark">Role<?= (($order_by == "role") ? ' <i class="fas fa-caret-' . (($sort_by == "ASC") ? 'up' : 'down') . '"></i>' : '') ?></a></th>
                     <th scope="col" width="20%"><a href="<?= modify_query_url([ 'order_by' => 'created_at', 'sort_by' => ($sort_by == "ASC" ? 'desc' : 'asc') ]) ?>" class="text-decoration-none text-dark">Registered<?= (($order_by == "created_at") ? ' <i class="fas fa-caret-' . (($sort_by == "ASC") ? 'up' : 'down') . '"></i>' : '') ?></a></th>
                 </tr>
             </thead>
@@ -63,7 +62,6 @@ include('includes/header.php');
                         <td><?= $user['id'] ?></td>
                         <td><?= $user['name'] ?></td>
                         <td><?= $user['email'] ?></td>
-                        <td><?= ($user['role'] == 4 ? 'Admin' : ($user['role'] == 3 ? 'Librarian' : ($user['role'] == 2 ? 'Researcher' : 'Client'))) ?></td>
                         <td><?= date('M j, Y \a\t h:i a', strtotime($user['created_at'])); ?></td>
                     </tr>
                 <?php endforeach; ?>

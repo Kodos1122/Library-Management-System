@@ -12,6 +12,13 @@
 
         <!-- FontAwesome -->
         <link href="/assets/css/fontawesome.min.css" rel="stylesheet">
+
+        <!-- FlatPickr (via CDN) -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+        <!-- Select2 (via CDN) -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.2.0/dist/select2-bootstrap-5-theme.min.css" />
         
         <!-- Custom CSS -->
         <link href="/assets/css/style.css" rel="stylesheet">
@@ -99,11 +106,46 @@
                 <ul class="nav flex-column mb-2">
                     <li class="nav-item">
                         <a class="nav-link<?= (str_starts_with($route, '/user')) ? ' active' : '' ?>" href="/users">
-                            <i class="fas fa-users"></i> Users
+                            <i class="fas fa-user"></i> Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/client')) ? ' active' : '' ?>" href="/clients">
+                            <i class="fas fa-users"></i> Clients
                         </a>
                     </li>
                 </ul>
                 <?php endif; ?>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Account</span>
+                </h6>
+
+                <ul class="nav flex-column mb-2">
+                    <?php if (isset($_SESSION['user'])): ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/account')) ? ' active' : '' ?>" href="/account">
+                            <i class="fas fa-user"></i> My Account
+                        </a>
+                    </li>
+
+                    <?php else: ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/login')) ? ' active' : '' ?>" href="/login">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link<?= (str_starts_with($route, '/register')) ? ' active' : '' ?>" href="/register">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
+                    </li>
+
+                    <?php endif; ?>
+                </ul>
             </div>
         </nav>
 

@@ -49,8 +49,8 @@ include('includes/header.php');
                 </div>
             <?php endif; ?>
 
-            <div class="px-5 ms-xl-4">
-              <i class="fas fa-book-reader fa-2x me-3 pt-5 mt-xl-4 text-primary"></i>
+            <div class="px-5 ms-xl-4 text-primary">
+              <i class="fas fa-book-reader fa-2x me-3 pt-5 mt-xl-4"></i>
               <span class="h1 fw-bold mb-0">Library Login</span>
             </div>
 
@@ -59,25 +59,22 @@ include('includes/header.php');
                     <h3 class="fw-normal mb-3 pb-2" style="letter-spacing: 1px;">Log in</h3>
 
                     <div class="form-outline mb-2">
-                        <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                        <input type="email" id="email" name="email" class="form-control form-control-lg" required>
                         <label class="form-label" for="email">Email address</label>
                     </div>
 
                     <div class="form-outline mb-2">
-                        <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" required>
                         <label class="form-label" for="password">Password</label>
                     </div>
 
                     <div class="pt-1 mb-4">
                         <button class="btn btn-primary btn-lg btn-block px-5" type="submit">Login</button>
                     </div>
-
-                    <!--<p>Don't have an account? <a href="/register" class="link-primary">Register here</a></p>-->
-
                 </form>
             </div>
 
-            <div class="col-sm-10 offset-sm-1 mt-4 card" id="demo">
+            <div class="col-sm-10 offset-sm-1 mt-4 card">
                 <div class="card-body text-muted small">
                     <strong>This is a demonstration website.</strong> Please use these accounts to test the website functionality as different roles.
                 </div>
@@ -90,7 +87,7 @@ include('includes/header.php');
             </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
-            <img class="w-100" style="object-fit: cover; object-position: right; height: 94.2vh" src="/assets/images/library-cover.png">
+            <img class="w-100" style="object-fit: cover; object-position: right; height: 94.2vh; opacity: 80%" src="/assets/images/library-cover.png">
         </div>
     </div>
 </div>
