@@ -55,26 +55,38 @@ include('includes/header.php');
             </div>
 
             <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-              <form action="/login" method="POST" style="width: 23rem;">
-                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+                <form action="/login" method="POST" style="width: 23rem;">
+                    <h3 class="fw-normal mb-3 pb-2" style="letter-spacing: 1px;">Log in</h3>
 
-                <div class="form-outline mb-4">
-                  <input type="email" id="email" name="email" class="form-control form-control-lg" />
-                  <label class="form-label" for="email">Email address</label>
+                    <div class="form-outline mb-2">
+                        <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                        <label class="form-label" for="email">Email address</label>
+                    </div>
+
+                    <div class="form-outline mb-2">
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+
+                    <div class="pt-1 mb-4">
+                        <button class="btn btn-primary btn-lg btn-block px-5" type="submit">Login</button>
+                    </div>
+
+                    <!--<p>Don't have an account? <a href="/register" class="link-primary">Register here</a></p>-->
+
+                </form>
+            </div>
+
+            <div class="col-sm-10 offset-sm-1 mt-4 card" id="demo">
+                <div class="card-body text-muted small">
+                    <strong>This is a demonstration website.</strong> Please use these accounts to test the website functionality as different roles.
                 </div>
-
-                <div class="form-outline mb-4">
-                  <input type="password" id="password" name="password" class="form-control form-control-lg" />
-                  <label class="form-label" for="password">Password</label>
-                </div>
-
-                <div class="pt-1 mb-4">
-                  <button class="btn btn-primary btn-lg btn-block px-5" type="submit">Login</button>
-                </div>
-
-                <!--<p>Don't have an account? <a href="/register" class="link-primary">Register here</a></p>-->
-
-              </form>
+                <ul class="list-group list-group-flush small">
+                    <li class="list-group-item text-muted">Email: admin@ontariotechu.net<span style="float: right;">Password: password</span></li>
+                    <li class="list-group-item text-muted">Email: librarian@ontariotechu.net<span style="float: right;">Password: password</span></li>
+                    <li class="list-group-item text-muted">Email: researcher@ontariotechu.net<span style="float: right;">Password: password</span></li>
+                    <li class="list-group-item text-muted">Email: student@ontariotechu.net<span style="float: right;">Password: password</span></li>
+                </ul>
             </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
