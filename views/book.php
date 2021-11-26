@@ -63,34 +63,38 @@ include('includes/header.php');
 
     <div class="row my-5">
         <div class="col-lg-12">
-            <h2>Checkout Book</h2>   
             <div class="card">
                 <div class="card-body">
                     <form>
-                        <div class="row mb-3">
-                            <h4>Search for a Client</h4>
+                        <div class="row mb-2">
+                            <h4>Checkout Book</h4>
                             <div class="col-sm-8">
                                 <label for="client" class="form-label">Client</label>
                                 <select id="client" name="client" class="form-control">
                                     <option></option>
                                     <?php foreach($clients as $client): ?>
-                                        <option data-card="<?= $client['card'] ?>" value="<?= $client['id'] ?>"><?= $client['name'] ?></option>
+                                        <option data-card="<?= $client['card'] ?>" value="<?= $client['id'] ?>"<?= get_value('client') == $client['id'] ? ' selected' : '' ?>><?= $client['name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-sm-4">
                                 <label for="library_card" class="form-label">Library Card</label>
-                                <input type="text" id="library_card" name="library_card" class="form-control" readonly>
+                                <input type="text" id="library_card" name="library_card" class="form-control" value="<?= get_value('library_card') ?>" readonly>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="client" class="form-label">Client</label>
-                            <input type="text" id="client" name="client" class="form-control">
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <label for="reserve_date" class="form-label">Checkout Date</label>
+                                <input type="date" id="reserve_date" name="reserve_date" class="bg-white" value="<?= get_value('reserve_date', date('Y-m-d')) ?>">
+                                <small class="form-text text-muted">Choose a future date to put this book on hold for the client.</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="return_date" class="form-label">Return Date</label>
+                                <input type="date" id="return_date" name="return_date" class="bg-white" value="<?= get_value('return_date', date('Y-m-d', strtotime('+3 weeks'))) ?>">
+                                <small class="form-text text-muted">Standard reservation is three weeks.</small>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="reserve_date" class="form-label">Date</label>
-                            <input id="reserve_date" name="reserve_date" type="date">
-                        </div>
+                        <button type="submit" class="btn btn-success px-2">Confirm Checkout</button>
                     </form>
                 </div>
             </div>

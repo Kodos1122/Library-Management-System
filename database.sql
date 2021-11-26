@@ -76,8 +76,7 @@ INSERT INTO users (email, name_first, name_last, role, password) VALUES
     ('researcher@ontariotechu.net', 'Chloe', 'McLean', 2, '$2y$10$ShhmLiA0isK.9UBzeAp16.6aJmynQn0Wan/J72J1Um8XAVdUrtfN6'), # password is 'password'
     ('student@ontariotechu.net', 'Austin', 'Kerr', 1, '$2y$10$ShhmLiA0isK.9UBzeAp16.6aJmynQn0Wan/J72J1Um8XAVdUrtfN6'); # password is 'password'
 
-INSERT INTO `clients` (`name_first`,`name_last`,`phone`,`email`,`address`,`postal_code`,`province`,`country`,`card`)
-VALUES
+INSERT INTO `clients` (`name_first`,`name_last`,`phone`,`email`,`address`,`postal_code`,`province`,`country`,`card`) VALUES
   ("Kaye","Grant","(316) 410-8659","g.kaye@yahoo.com","Ap #965-6166 Enim. St.","R1J 6T7","Manitoba","Canada","2934100378673852"),
   ("Winifred","James","(226) 723-4345","jameswinifred8118@yahoo.com","Ap #186-3475 Ante. Ave","34W 7X8","Northwest Territories","Canada","2934100308114302"),
   ("Leila","Rodriquez","(425) 364-6776","rodriquez.leila8094@yahoo.com","Ap #386-9162 Metus. Ave","J2H 3N4","Quebec","Canada","2934100313607640"),

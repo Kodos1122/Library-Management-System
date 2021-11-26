@@ -15,7 +15,7 @@ $(document).ready(function($) {
         document.querySelector('.select2-search__field').focus();
     });
 
-    $('#reserve_date').flatpickr({
+    $('#reserve_date, #return_date').flatpickr({
         altInput: true,
         altFormat: "F j, Y",
         dateFormat: "Y-m-d",
