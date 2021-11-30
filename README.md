@@ -11,6 +11,17 @@
 
 - Osamah Al-Bayati
 
+## How to Install and Execute on Windows, Mac, or Linux
+
+#### System Requirements
+- Apache >= 2.4
+- MySQL >= 5.6
+- PHP >= 8.1
+
+#### Install and Execute
+
+Clone the repository to your website root (usually public_html, or setup an Apache virtual host). Copy config.ini.sample to config.ini and populate it with your database connection details. Ensure Apache mod_rewrite is enabled to allow the .htaccess file to tell the server to allow direct access to files ending with specific extensions, and tell the server to redirect all requests to the routes file. Start the Apache and MySQL services.
+
 ## Functional and Non-Functional Requirements
 
 ### Functional requirements
