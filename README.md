@@ -199,7 +199,7 @@ Figure 3: Primary Use Case Supporting Modules
 | --- | --- | CRN-3 | Work assignment table used to address the allocation of work to the team members. |
 | --- | CRN-4 | --- | Introduced in this iteration. It is partially solved by the use of an inversion of control approach to connect the components associated with the modules.|
 
-## ADD Iteration Two
+## ADD Iteration Three
 
 ### Step 2
 
