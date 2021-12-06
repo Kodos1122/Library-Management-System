@@ -130,4 +130,35 @@ The entire system is refined since it is a greenfield development effort. Refine
 
 ### Step 4
 
+## ADD Iteration One
+
+### Step 2
+
+* UC-1: Log-In
+* UC-2: Manage Book Server
+* UC-3: Display Book Status Change
+* UC-5: Manage Rentals
+
+### Step 3
+
+The modules located in the different layers.
+
+### Step 4
+
+| Design Decisions and Location | Rationale and Assumptions |
+| --- | --- |
+| Create a Domain Model for the application | It is necessary to create an initial domain model for the system, Before starting a functional decomposition, identifying the major entities in the domain, along with their relationships. There are no good alternatives. A domain model must eventually be created, or it will emerge in a suboptimal fashion. |
+| Identify Domain Objects that map to functional requirements | Each distinct functional element of the application needs to be encapsulated in a self-contained building block-a domain object. One possible alternative is to not consider domain objects and instead directly decompose layers into modules, but this increases the risk of not considering a requirement. |
+
+### Step 5
+
+| Design Decisions and Location | Rationale |
+| --- | --- |
+| Create only an initial domain model | An initial domain model is diagrammed to identify primary participating entities in our use cases. As this is an initial design, only the primary use cases are represented. |
+| Map the system use cases to domain objects | An initial identification of domain objects can be made by analyzing the system's use cases. To address CRN-2 and CRN-3 (leverage the team's knowledge about the technologies, and allocate work to members of the team), domain objects are identified for all of the use cases. |
+| Decompose the domain objects across the layers to identify layer-specific modules with an explicit interface | Modules are identified and represented to support all of the functionalities in accordance with our primary use cases. These modules can then be unit-tested to ensure correct functionality and behaviour throughout the development process. CRN-4: modules shall be unit tested. |
+| Connect components associated with modules using MVC | This project uses the Model-View-Controller framework for dependency between components associated with the predetermined modules to be structures, maintainable, and scalable. |
+| Associate frameworks with a module in the data layer | ORM mapping is encapsulated in the modules that are contained in the data layer. |
+
+
 
