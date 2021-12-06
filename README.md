@@ -235,8 +235,8 @@ The elements that will be refined are the application server and the book databa
 <img src="https://i.imgur.com/lQZDLtc.jpg">
 Figure 4: Deployment diagram
 
-<img src="https://i.imgur.com/5Jzuqxt.png">
-Figure 5: Sequence diagram
+![Figure 5: Sequence diagram](img src="https://i.imgur.com/5Jzuqxt.png")
+*Figure 5: Sequence diagram*
 
 ### Step 7
 
@@ -248,6 +248,6 @@ Figure 5: Sequence diagram
 | --- | CON-5 | --- | No relevant decision made |
 | --- | CRN-2 | --- | No relevant decision made |
 | --- | CRN-4 | --- | No relevant decision made |
-| --- | CRN-5 | --- | Introduced in this iteration, no decisions have been made. |
+| CRN-5 | --- | --- | Introduced in this iteration, no decisions have been made. |
 
 
