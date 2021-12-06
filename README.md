@@ -160,5 +160,6 @@ The modules located in the different layers.
 | Connect components associated with modules using MVC | This project uses the Model-View-Controller framework for dependency between components associated with the predetermined modules to be structures, maintainable, and scalable. |
 | Associate frameworks with a module in the data layer | ORM mapping is encapsulated in the modules that are contained in the data layer. |
 
-
+### Step 6
+<img src="https://i.imgur.com/ca4YZ1o.png">
 
