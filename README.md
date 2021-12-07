@@ -130,6 +130,37 @@ The entire system is refined since it is a greenfield development effort. Refine
 
 ### Step 4
 
+| Design Decisions and Location | Rationale and Assumptions |
+| --- | --- |
+| Rich internet application | Oriented towards the development of a rich-user interface that runs on a web-browser. Can be upgraded relatively easily. |
+
+### Step 5
+
+| Design Decisions and Location | Rationale and Assumptions |
+| --- | --- |
+| Create a module for accessing database, requesting retrieval queries, and updates from the data sources layer of rich internet application reference architecture | The clients and admins need a protocol to connect to the database to access information, and perform transactions. This facilitates UCs 1-5 and QA-2 and 3 |
+
+### Step 6
+
+<img src="https://i.imgur.com/O2vYKZZ.png">
+
+#### Design Decisions:
+
+* Web Server follows Model-View-Controller architecture. Controller communicates with the database server to query and update the database. Model uses data to serve Views to the user’s browser and facilitates interactions over form input, data representation, and user authentication and authorization.
+* Web server communicated with the database server using a PHP-MySQL connector over TCP/IP.
+* Web server handles communication and representation on the presentation, business, and data layers.
+
+### Step 7
+
+| Not Addressed | Partially Addressed | Completely Addressed | Design Decision Made During Iteration |
+| --- | --- | --- | --- |
+| --- | QA-3 | --- | No relevant decision made |
+| --- | QA-4 | --- | No relevant decision made |
+| --- | CON-4 | --- | No relevant decision made |
+| --- | CON-5 | --- | No relevant decision made |
+| --- | CRN-2 | --- | No relevant decision made |
+| --- | CRN-4 | --- | No relevant decision made |
+
 ## ADD Iteration Two
 
 ### Step 2
