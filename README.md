@@ -11,6 +11,8 @@
 
 - Osamah Al-Bayati
 
+- Laith Hasan
+
 ## How to Install and Execute on Windows, Mac, or Linux
 
 #### System Requirements
